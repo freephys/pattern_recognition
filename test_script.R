@@ -16,15 +16,14 @@ ic.8 <- which(y.train == 8)
 ic.9 <- which(y.train == 9)
 
 ic.list <- list(
- ic.0,
- ic.1,
- ic.2,
- ic.3,
- ic.4,
- ic.5,
- ic.6,
- ic.7,
- ic.8,
- ic.9
+ ic.0, ic.1, ic.2, ic.3, ic.4, ic.5, ic.6, ic.7, ic.8, ic.9
 )
 
+chk.2dlist <- lapply(ic.list, 
+ function(x) list(
+  sample(1:length(x), 25, replace=T), 
+  sample(1:length(x), 25, replace=T), 
+  sample(1:length(x), 25, replace=T), 
+  sample(1:length(x), 25, replace=T)
+ )
+)
