@@ -4,3 +4,27 @@ x.train <- x.train[,-1]
 
 S <- cov(x.train)
 
+ic.0 <- which(y.train == 0)
+ic.1 <- which(y.train == 1)
+ic.2 <- which(y.train == 2)
+ic.3 <- which(y.train == 3)
+ic.4 <- which(y.train == 4)
+ic.5 <- which(y.train == 5)
+ic.6 <- which(y.train == 6)
+ic.7 <- which(y.train == 7)
+ic.8 <- which(y.train == 8)
+ic.9 <- which(y.train == 9)
+
+ic.list <- list(
+ ic.0,
+ ic.1,
+ ic.2,
+ ic.3,
+ ic.4,
+ ic.5,
+ ic.6,
+ ic.7,
+ ic.8,
+ ic.9
+)
+
