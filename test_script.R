@@ -27,3 +27,5 @@ chk.2dlist <- lapply(ic.list,
   sample(1:length(x), 25, replace=T)
  )
 )
+
+cov.mats <- lapply(chk.2dlist, function (x.l) lapply(x.l, cov))
