@@ -29,3 +29,5 @@ chk.2dlist <- lapply(ic.list,
 )
 
 cov.mats <- lapply(chk.2dlist, function (x.l) lapply(x.l, cov))
+
+mean.2dlist <- lapply(chk.2dlist, function(x) lapply(x, function (x.df) apply(x.df, 2, mean)))
