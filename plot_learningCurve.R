@@ -1,5 +1,10 @@
 
 
+d<- read.table("learning_curve.txt")
+
+miny <- min(d[,3:5])
+maxy <- max(d[,3:5])
+
 svg("learning_curve.1.svg")
 par(mar=c(4.9, 4.9, 0.5, 0.5))
 
