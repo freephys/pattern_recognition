@@ -1,6 +1,6 @@
 
 
-d<- read.table("learning_curve.txt")
+d<- read.table("figs/learning_curve.txt")
 
 miny <- min(d[,3:5])
 maxy <- max(d[,3:5])

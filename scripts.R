@@ -2,7 +2,7 @@
 
 d <- c(7.55, 7.33, 7.11, 11.33)
 
-svg("error.1.svg")
+svg("figs/error.1.svg")
 par(mar=c(0.7, 4.8, 1, 1))
 barplot(d, cex.axis=1.8, cex.lab=1.8, col="steelblue", ylab="Classificatoin Error")
 text(x=0.7, y=2, "True Density", cex=1.6, srt=90)
