@@ -5,9 +5,6 @@ import argparse, sys
 import numpy as np
 
 
-
-
-
 def main():
    # parse command line options
    parser = argparse.ArgumentParser()
@@ -22,10 +19,12 @@ def main():
      inf = sys.stdin
    else:
      parser.print_help()
+     sys.exit(0)
 
-   for line in inf:
-     data = line.strip().split(' ')
-     print len(data)
+
+   data = np.loadtxt(inf)
+   print data.shape
+   
    if args.filename:
      inf.close()
 
