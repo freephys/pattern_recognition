@@ -27,16 +27,33 @@ def read_data():
    if args.filename:
      inf.close()
 
-   return (data)
+   return (data[:,0:2])
 
 def normalize_data(data):
    feature_std  = np.std(data, axis=0)
    feature_mean = np.mean(data, axis=0)
-   print(data.transpose() - feature_mean)
+   for i in range(data.shape[0]):
+      data[i,:] = (data[i,:] - feature_mean) / feature_std
+
+   return (data)
 
 def main():
    data = read_data()
-   normalize_data(data)
+   data = normalize_data(data)
+
+   data_cov = np.cov(data.transpose())
+   print(data_cov)
+
+   egVal, egVec = np.linalg.eig(data_cov)
+   print(egVal)
+   print(egVec)
+
+   max_val = np.argmax(egVal)
+   print(max_val)
+
+   projection_matrix = egVec[:,max_val]
+
+   print(projection_matrix)
 
 if __name__=="__main__":
     main()
