@@ -5,7 +5,7 @@ import argparse, sys
 import numpy as np
 
 
-def main():
+def read_data():
    # parse command line options
    parser = argparse.ArgumentParser()
    parser.add_argument('filename', nargs='?')
@@ -21,13 +21,22 @@ def main():
      parser.print_help()
      sys.exit(0)
 
-
    data = np.loadtxt(inf)
-   print data.shape
+   print (data.shape)
    
    if args.filename:
      inf.close()
 
+   return (data)
+
+def normalize_data(data):
+   feature_std  = np.std(data, axis=0)
+   feature_mean = np.mean(data, axis=0)
+   print(data.transpose() - feature_mean)
+
+def main():
+   data = read_data()
+   normalize_data(data)
 
 if __name__=="__main__":
     main()
