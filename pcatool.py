@@ -22,7 +22,7 @@ def read_data():
      sys.exit(0)
 
    data = np.loadtxt(inf)
-   print (data.shape)
+   #print (data.shape)
    
    if args.filename:
      inf.close()
@@ -42,20 +42,23 @@ def main():
    data = normalize_data(data)
 
    data_cov = np.cov(data.transpose())
-   print(data_cov)
+   #print(data_cov)
 
    egVal, egVec = np.linalg.eig(data_cov)
-   print(egVal)
-   print(egVec)
+   #print(egVal)
+   #print(egVec)
 
    max_val = np.argmax(egVal)
-   print(max_val)
+   #print(max_val)
 
    projection_matrix = egVec[:,max_val]
+   #print(projection_matrix)
 
    projected_data = np.dot(data, projection_matrix)
 
-   print(projection_matrix)
+   for p1 in projected_data:
+      print("{0:.4f}".format(p1))
+
 
 if __name__=="__main__":
     main()
