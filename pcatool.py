@@ -53,6 +53,8 @@ def main():
 
    projection_matrix = egVec[:,max_val]
 
+   projected_data = np.dot(data, projection_matrix)
+
    print(projection_matrix)
 
 if __name__=="__main__":
