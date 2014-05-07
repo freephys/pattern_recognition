@@ -1,24 +1,34 @@
 """
     This python program calculates the PCA from the input data.
 """
-import sys
-import getopt
+import argparse, sys
 import numpy as np
 
+
+
+
+
 def main():
-    # parse command line options
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "h", ["help"])
-    except getopt.error, msg:
-        print msg
-        print "for help use --help"
-        sys.exit(2)    
-    # process options
-    for o, a in opts:
-        if o in ("-h", "--help"):
-            print __doc__
-            sys.exit(0)
-    
+   # parse command line options
+   parser = argparse.ArgumentParser()
+   parser.add_argument('filename', nargs='?')
+   parser.add_argument('-inx', nargs=1)
+   parser.add_argument('-ncomp', nargs=1)
+
+   args = parser.parse_args()
+   if args.filename:
+     inf = open(args.filename)
+   elif not sys.stdin.isatty():
+     inf = sys.stdin
+   else:
+     parser.print_help()
+
+   for line in inf:
+     data = line.strip().split(' ')
+     print len(data)
+   if args.filename:
+     inf.close()
+
 
 if __name__=="__main__":
     main()
